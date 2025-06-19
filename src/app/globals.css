@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: 37, 99, 235;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: 37, 99, 235;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: color 0.5s ease, background 0.5s ease;
+}
+
+.magic:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 92%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgb(var(--primary));
+  z-index: -1;
+  transition: all 0.1s cubic-bezier(0, 0.59, 1, 0.26);
+}
+
+.magic:hover:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgb(var(--primary));
+  z-index: -1;
+}
+
+/* scroll-bar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  cursor: none !important;
+}
