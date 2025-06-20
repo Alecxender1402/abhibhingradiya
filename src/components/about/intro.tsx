@@ -13,6 +13,14 @@ interface IntroProps {
   };
 }
 
+interface MagicLinkProps {
+  href: string;
+  children: React.ReactNode;
+  target?: string;
+  rel?: string;
+  className?: string;
+}
+
 export function Intro({ activeSection, fadeIn }: IntroProps) {
   // Animation variants with explicit typing
   const container: Variants = {
@@ -112,22 +120,25 @@ export function Intro({ activeSection, fadeIn }: IntroProps) {
           variants={container}
           className="space-y-6 sm:space-y-8 md:col-span-2"
         >
-          <motion.div
-            variants={item}
-            whileHover={{ x: 10 }}
-            className="flex items-start space-x-4 bg-gradient-to-r from-blue-900/20 to-transparent p-5 rounded-lg border-l-2 border-blue-400 shadow-md"
+         <motion.div
+        variants={item}
+        whileHover={{ x: 10 }}
+        className="flex items-start space-x-4 bg-gradient-to-r from-blue-900/20 to-transparent p-5 rounded-lg border-l-2 border-blue-400 shadow-md"
+      >
+        <p className="text-base sm:text-lg">
+          Hey, I&apos;m Abhi Bhingradiya! I&apos;m a 3rd-year Information Technology
+          B.E student at{" "}
+          <MagicLink 
+            href="https://www.gtu.ac.in/" 
+            target="_blank" 
+            rel="noopener noreferrer"
           >
-            <p className="text-base sm:text-lg">
-              Hey, I&apos;m Abhi Bhingradiya! I&apos;m a 3rd-year Information Technology
-              B.E student at{" "}
-              <MagicLink href="https://vgecg.ac.in/">
-                Vgec Chandkheda
-              </MagicLink>{" "}
-              with a minor in Machine Learning/DS. I&apos;m passionate about
-              creating innovative solutions that make a difference.
-            </p>
-          </motion.div>
-
+            Gujarat Technological University
+          </MagicLink>{" "}
+          with a minor in Machine Learning/DS. I&apos;m passionate about
+          creating innovative solutions that make a difference.
+        </p>
+      </motion.div>
           <motion.div
             variants={item}
             whileHover={{ x: 10 }}

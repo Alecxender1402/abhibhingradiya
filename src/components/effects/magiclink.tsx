@@ -7,12 +7,16 @@ interface MagicLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  target?: string;
+  rel?: string;
   external?: boolean;
 }
 
 export function MagicLink({
   href,
   children,
+  target, 
+  rel, 
   className = "",
   external = false,
 }: MagicLinkProps) {
@@ -69,6 +73,8 @@ export function MagicLink({
       <LinkComponent
         href={href}
         ref={linkRef}
+        target={target}
+        rel={rel}
         className={`relative inline-block ${className}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
